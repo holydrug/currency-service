@@ -1,4 +1,4 @@
-# currencySerivce
+# currency-service
 
 
 # Инструкция для запуска #
