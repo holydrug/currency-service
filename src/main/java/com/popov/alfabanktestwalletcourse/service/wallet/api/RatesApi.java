@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.popov.alfabanktestwalletcourse.client.currency.CurrencyClient;
 import com.popov.alfabanktestwalletcourse.properties.YAMLProperties;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
@@ -26,7 +25,6 @@ public class RatesApi {
     private final CurrencyClient client;
 
 
-    @SneakyThrows
     public Map<String, Double> getUpdatedRatesFullJson() {
 
         JsonNode root = getRatesAsDataUpdated();
