@@ -4,7 +4,7 @@
 # Инструкция для запуска #
 ##### 1. Скопируйте репозиторий и перейдите к нему в папку #####
 
-    git clone git@github.com:holydrug/currency-service.git
+    git clone git@github.com:holydrug/currencyService.git
     cd currencySerivce
 
 ##### 2. В папке resources содержится параметры, #####
