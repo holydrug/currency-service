@@ -7,32 +7,32 @@
 ## Logic ##
 ##### Receiving data overview  #### 
     
-    Я создал 2 класса: RatesApi и GifApi
-    GifApi и RatesApi использую Feign чтобы достучатся до апи сайта из интернета и получить все данные вида JsonNode.
+    There are two classes: RatesApi и GifApi.
+    GifApi and RatesApi uses Feign for access to sites api from ethernet and receive JsonNode data.
 
-##### 2. RatesApi #### 
+##### RatesApi #### 
 
-    Получает блок данных, из которых я вычлиняю отношения валют к доллару.
-    В конце концов возращаю мапу НазваниеВалюты-Отношение или <String, Double>
+    Receive data from request by Feign client and cut it to rates only.
+    Return map NameOfCurrency-Rate or <String, Double>.
 
 ##### 3. GifApi ####
 
-    Получает блок данных, из которых я вычлинаю ссылку на одинокую гифку,
-    после я конверчу гифку в массив байтов и возвращаю его.
+    Receive data from request by Feign client and cut it to url of image only.
+    Url gif will be converted to byte[]
 
 ##### 4. GifServiceImpl #####
     
-    Имеет 3 основных метода, которые будут описывать отношение валюты к доллару
+    There are 3 methods that discribes rate of currency to USD in gif by query
     
 ##### 5. CurrencyServiceImpl #####
 
-    Сводится к тому, что метод compareRates() вернет -1 либо 0, либо 1
-    Что будет означать отношение валюты.
+    compareRates() method return -1 or 0 or 1
+    That digits will be discribe how is USD rate has changed
 
 ##### 6. DistributionServiceImpl #####
 
-    Объединяет сервисы и в зависимости от сравнения метода compareRates() 
-    покажет гифку, отображающую курс сравниваемой валюты
+    Distribution links services and depends on compareRates() 
+    response return proper gif
 
 # Building #
 ##### 1. Copy repo to local and move to dir #####
