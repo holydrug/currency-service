@@ -1,5 +1,18 @@
 # currency-service
 
+## Table of contents
+- [Overview](#Overview)
+- [Logic](#Logic)
+  - [Receiving data overview](#Receiving-data-overview)
+  - [RatesApi](#RatesApi)
+  - [GifApi](#GifApi)
+  - [GifServiceImpl](#GifServiceImpl)
+  - [CurrencyServiceImpl](#CurrencyServiceImpl)
+  - [DistributionServiceImpl](#DistributionServiceImpl)
+- [Building](#Building)
+
+
+
 ## Overview ## 
  - Main purpose of project is to handle rate of currency to USD for different time
  - Program will show Gif visualization of rate after handling it.
@@ -15,21 +28,21 @@
     Receive data from request by Feign client and cut it to rates only.
     Return map NameOfCurrency-Rate or <String, Double>.
 
-##### 3. GifApi ####
+##### GifApi ####
 
     Receive data from request by Feign client and cut it to url of image only.
     Url gif will be converted to byte[]
 
-##### 4. GifServiceImpl #####
+##### GifServiceImpl #####
     
     There are 3 methods that discribes rate of currency to USD in gif by query
     
-##### 5. CurrencyServiceImpl #####
+##### CurrencyServiceImpl #####
 
     compareRates() method return -1 or 0 or 1
     That digits will be discribe how is USD rate has changed
 
-##### 6. DistributionServiceImpl #####
+##### DistributionServiceImpl #####
 
     Distribution links services and depends on compareRates() 
     response return proper gif
