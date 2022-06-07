@@ -1,9 +1,11 @@
 # currency-service
 
+## Overview ## 
+ - Main purpose of project is to handle rate of currency to USD for different time
+ - Program will show Gif visualization of rate after handling it.
 
-
-## Логика проекта ##
-##### 1. Все начинается с того, что я должен получить данные с сайтов, чтобы их обработать #### 
+## Logic ##
+##### Receiving data overview  #### 
     
     Я создал 2 класса: RatesApi и GifApi
     GifApi и RatesApi использую Feign чтобы достучатся до апи сайта из интернета и получить все данные вида JsonNode.
