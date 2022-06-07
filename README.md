@@ -1,33 +1,6 @@
 # currency-service
 
 
-# Инструкция для запуска #
-##### 1. Скопируйте репозиторий и перейдите к нему в папку #####
-
-    git clone git@github.com:holydrug/currencyService.git
-    cd currencySerivce
-
-##### 2. В папке resources содержится параметры, #####
-
-    настройте в блоке openexchange symbols
-    (ваши желаемые валюты для получения отношения к доллору)
-    
-    настройте в блоке openexchange to_compare
-    (валюта, отношение которой будет влиять на гифку, которая покажется)
-   
-##### 3. Вернитесь в корневой раздел папки и соберите проект в jar #####
-
-    ./gradlew build
-   
-##### 4. Запустите приложение (у вас должна быть установлена 8 джава) #####
-
-    java -jar build/libs/alfabank-test-wallet-course-0.0.1-SNAPSHOT.jar
-
-##### 5. Попробуйте достучатся по адрессу http://localhost:8080/check #####
-    Если вы все сделали правильно, вы получите 3 варианта гифки:
-     - Курс не изменился 
-     - Курс повысился    
-     - Курс понизился    
 
 ## Логика проекта ##
 ##### 1. Все начинается с того, что я должен получить данные с сайтов, чтобы их обработать #### 
@@ -58,3 +31,31 @@
 
     Объединяет сервисы и в зависимости от сравнения метода compareRates() 
     покажет гифку, отображающую курс сравниваемой валюты
+
+# Building #
+##### 1. Copy repo to local and move to dir #####
+
+    git clone git@github.com:holydrug/currencyService.git
+    cd currencySerivce
+
+##### 2. In resources dir you should setup params #####
+
+    set up in openexchange unit symbols in application-dev.yml
+    (prefered currency to be shown as rates to USD)
+    
+    set up in openexchange unit to_compare in application-dev.yml
+    (primary rate which will be compared to USD to show gif)
+
+##### 3. Go to root and build app #####
+
+    ./gradlew build
+
+##### 4. Run built jar #####
+
+    java -jar build/libs/alfabank-test-wallet-course-0.0.1-SNAPSHOT.jar
+
+##### 5. Try to http://localhost:8080/check #####
+    There will be 3 options:
+     - Rate has not changed
+     - Rate has grown
+     - Rate has broken    

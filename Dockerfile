@@ -1,20 +1,14 @@
+FROM gradle:4.7.0-jdk8-alpine AS build
+COPY --chown=gradle:gradle . /home/gradle/src
+WORKDIR /home/gradle/src
+RUN gradle build --no-daemon 
 
-ARG BUILD_HOME=./
+FROM openjdk:8-jre-slim
 
-FROM gradle:jdk8 as build-image
+EXPOSE 8080
 
-ARG BUILD_HOME
-ENV APP_HOME=$BUILD_HOME
-WORKDIR $APP_HOME
+RUN mkdir /app
 
-ADD --chown=gradle:gradle build.gradle settings.gradle $APP_HOME/
-ADD --chown=gradle:gradle src $APP_HOME/src
+COPY --from=build /home/gradle/src/build/libs/*.jar /app/spring-boot-application.jar
 
-RUN gradle
-
-FROM openjdk:8-alpine
-
-ARG BUILD_HOME
-ENV APP_HOME=$BUILD_HOME
-
-ENTRYPOINT java -jar alfabank-test-wallet-course-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/spring-boot-application.jar"]
