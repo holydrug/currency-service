@@ -8,9 +8,14 @@ plugins {
     id 'java'
     id 'maven-publish'
     id "org.springframework.boot" version "2.0.1.RELEASE"
+    id 'com.palantir.docker' version "0.33.0"
+    id 'com.palantir.docker-run' version "0.33.0"
 }
 
 apply plugin: 'java'
+
+
+
 
 compileJava {
     options.compilerArgs << '-parameters'
@@ -22,6 +27,19 @@ repositories {
         url = uri('https://repo.maven.apache.org/maven2/')
     }
     mavenCentral()
+}
+
+docker {
+    name "currency-service"
+    dockerfile file('src/docker/Dockerfile')
+    copySpec.from(jar).rename(".*","app.jar")
+    buildArgs(['JAR_FILE': "app.jar"])
+}
+
+dockerRun {
+    name 'currency-service'
+    image 'currency-service'
+    ports '8080:8080'
 }
 
 dependencies {
@@ -37,6 +55,8 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.24'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
 }
+
+
 
 group = 'com.popov'
 version = '0.0.1-SNAPSHOT'
