@@ -10,6 +10,7 @@
   - [CurrencyServiceImpl](#CurrencyServiceImpl)
   - [DistributionServiceImpl](#DistributionServiceImpl)
 - [Building](#Building)
+- [Docker](#Docker)
 
 
 
@@ -74,3 +75,17 @@
      - Rate has not changed
      - Rate has grown
      - Rate has broken    
+
+# Docker #
+
+  >Build project before start.
+
+##### 1. Go to root and invoke Dockerfile #####
+  
+    sudo ./gradlew docker
+    (or run as root from tty)
+
+##### 2. Run docker container from image #####
+    
+    sudo ./gradlew dockerRun
+
