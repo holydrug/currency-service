@@ -93,4 +93,6 @@
 ##### 2. Run docker container from image #####
     
     sudo ./gradlew dockerRun
+    (or run as root from tty)
 
+##### 3. Try to http://localhost:8080/check #####
