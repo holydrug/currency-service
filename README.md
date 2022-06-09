@@ -10,12 +10,15 @@
   - [CurrencyServiceImpl](#CurrencyServiceImpl)
   - [DistributionServiceImpl](#DistributionServiceImpl)
 - [Building](#Building)
+- [Docker](#Docker)
 
 
 
 ## Overview ## 
  - Main purpose of project is to handle rate of currency to USD for different time
  - Program will show Gif visualization of rate after handling it.
+
+
 
 ## Logic ##
 ##### Receiving data overview  #### 
@@ -47,6 +50,8 @@
     Distribution links services and depends on compareRates() 
     response return proper gif
 
+
+
 # Building #
 ##### 1. Copy repo to local and move to dir #####
 
@@ -74,3 +79,20 @@
      - Rate has not changed
      - Rate has grown
      - Rate has broken    
+
+
+
+# Docker #
+  >PLEASE NOTE: Build project before start.
+
+##### 1. Go to root and invoke Dockerfile #####
+  
+    sudo ./gradlew docker
+    (or run as root from tty)
+
+##### 2. Run docker container from image #####
+    
+    sudo ./gradlew dockerRun
+    (or run as root from tty)
+
+##### 3. Try to http://localhost:8080/check #####
