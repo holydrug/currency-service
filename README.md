@@ -18,7 +18,7 @@
  - Main purpose of project is to handle rate of currency to USD for different time
  - Program will show Gif visualization of rate after handling it.
 
----
+
 
 ## Logic ##
 ##### Receiving data overview  #### 
@@ -50,7 +50,7 @@
     Distribution links services and depends on compareRates() 
     response return proper gif
 
----
+
 
 # Building #
 ##### 1. Copy repo to local and move to dir #####
@@ -80,7 +80,7 @@
      - Rate has grown
      - Rate has broken    
 
----
+
 
 # Docker #
   >PLEASE NOTE: Build project before start.
