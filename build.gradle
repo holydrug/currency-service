@@ -37,7 +37,7 @@ docker {
 }
 
 dockerRun {
-    name 'currency-service'
+    name 'currency-service-container'
     image 'currency-service'
     ports '8080:8080'
 }
