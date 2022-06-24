@@ -55,8 +55,8 @@
 # Building #
 ##### 1. Copy repo to local and move to dir #####
 
-    git clone https://github.com/holydrug/currencyService.git
-    cd currencyService
+    git clone https://github.com/holydrug/currency-service.git
+    cd currency-service
 
 ##### 2. In resources dir you should setup params #####
 
